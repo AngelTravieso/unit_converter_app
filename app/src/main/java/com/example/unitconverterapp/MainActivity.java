@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,12 +30,21 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // get kilos from user input (convert to double)
-                double kilos_entered = Double.parseDouble(editText.getText().toString());
 
-                // convert to string
-                // ""+convertToPounds(kilos_entered)
-                result_text.setText(String.format("%s lb",convertToPounds(kilos_entered)));
+                System.out.println("editText = " + editText.getText());
+
+                String kilos = editText.getText().toString();
+                
+                if(!kilos.isEmpty()) {
+                    // get kilos from user input (convert to double)
+                    double kilos_entered = Double.parseDouble(kilos);
+
+                    // convert to string
+                    // ""+convertToPounds(kilos_entered)
+                    result_text.setText(String.format("%s lb",convertToPounds(kilos_entered)));    
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter a valid weight unit", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
