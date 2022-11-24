@@ -29,9 +29,16 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                // get kilos from user input (convert to double)
+                double kilos = Double.parseDouble(btn.getText().toString());
+                convertToPounds(kilos);
             }
         });
-
     }
+
+    public double convertToPounds(double kilos) {
+        double pound_result = kilos * 2.204;
+        return pound_result;
+    }
+
 }
