@@ -30,15 +30,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // get kilos from user input (convert to double)
-                double kilos = Double.parseDouble(btn.getText().toString());
-                convertToPounds(kilos);
+                double kilos_entered = Double.parseDouble(editText.getText().toString());
+
+                // convert to string
+                // ""+convertToPounds(kilos_entered)
+                result_text.setText(String.format("%s lb",convertToPounds(kilos_entered)));
             }
         });
     }
 
     public double convertToPounds(double kilos) {
-        double pound_result = kilos * 2.204;
-        return pound_result;
+        return kilos * 2.20462;
     }
 
 }
