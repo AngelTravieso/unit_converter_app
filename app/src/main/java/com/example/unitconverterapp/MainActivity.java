@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
                     // convert to string
                     // ""+convertToPounds(kilos_entered)
-                    result_text.setText(String.format("%s lb",convertToPounds(kilos_entered)));    
+                    // String.format("%s", value)
+                    result_text.setText(""+convertToPounds(kilos_entered) + " lb");
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter a valid weight unit", Toast.LENGTH_SHORT).show();
                 }
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public double convertToPounds(double kilos) {
-        return kilos * 2.20462;
+        return new Double(kilos * 2.20462).shortValue();
     }
 
 }
